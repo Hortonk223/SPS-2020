@@ -56,8 +56,9 @@ function addQuoteToDom(quote) {
  * whichever syntax makes the most sense to you.
  */
 function getRandomQuoteUsingArrowFunctions() {
-  fetch('/random-quote').then(response => response.text()).then((quote) => {
-    document.getElementById('quote-container').innerText = quote;
+    console.log("rando using arrows");
+  fetch('/data').then(response => response.text()).then((message) => {
+    document.getElementById('greeting-container').innerText = message;
   });
 }
 
