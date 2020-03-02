@@ -18,7 +18,7 @@
 function addMessage() {
   console.log("Hi");
   fetch('/data').then(response => response.json()).then((message) => {
-    const commentListElement = document.getElementById('greeting-container');
+    const commentListElement = document.getElementById('comment-container');
         commentListElement.innerHTML = '';
         commentListElement.appendChild(createListElement(message.toString()));
 

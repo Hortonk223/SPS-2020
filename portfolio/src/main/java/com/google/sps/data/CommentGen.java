@@ -6,9 +6,12 @@ public final class CommentGen {
 
   public CommentGen() {
     comments = new ArrayList<String>();
-    comments.add("Woah a new comment!");
-    comments.add("WELCOME TO SPS!");
-    comments.add("How do I program anything?");
+    // comments.add("Woah a new comment!");
+    // comments.add("WELCOME TO SPS!");
+    // comments.add("How do I program anything?");
+  }
+  public void addComment(String comment){
+      comments.add(comment);
   }
   public String toString(){
       String comment = "";

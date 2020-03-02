@@ -25,14 +25,31 @@ import javax.servlet.http.HttpServletResponse;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-    
+  private CommentGen comments = new CommentGen();
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-    CommentGen commentGen = new CommentGen();
-    String json = convertToJsonUsingGson(commentGen);
+    
+    String json = convertToJsonUsingGson(comments);
     response.setContentType("application/json;");
     response.getWriter().println(json);  
+  }
+
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    String newComment = getParameter(request, "text-input", "");
+    comments.addComment(newComment);
+    response.sendRedirect("/index.html");
+
+  }
+    /**
+   * @return the request parameter, or the default value if the parameter
+   *         was not specified by the client
+   */
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 
 
