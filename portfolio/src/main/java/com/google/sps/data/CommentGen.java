@@ -1,17 +1,16 @@
 package com.google.sps.data;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 public final class CommentGen {
-    public ArrayList<String> comments;
+    private ArrayList<String> comments;
 
   public CommentGen() {
     comments = new ArrayList<String>();
-    // comments.add("Woah a new comment!");
-    // comments.add("WELCOME TO SPS!");
-    // comments.add("How do I program anything?");
   }
   public void addComment(String comment){
-      comments.add(comment);
+      LocalDateTime time = LocalDateTime.now();
+      comments.add(time + ": " +comment);
   }
   public String toString(){
       String comment = "";
