@@ -15,21 +15,19 @@
 /**
  * Adds a random greeting to the page.
  */
-function addMessage() {
+function loadComments() {
   console.log("Hi");
-  fetch('/data').then(response => response.json()).then((message) => {
+  fetch('/data').then(response => response.json()).then((comments) => {
     const commentListElement = document.getElementById('comment-container');
-        commentListElement.innerHTML = '';
-        commentListElement.appendChild(createListElement(message.toString()));
-
-        
-
-  });
-}
+        comments.forEach((comment) => {
+      commentListElement.appendChild(createListElement(comment));
+    })
+})
 /** Creates an <li> element containing text. */
 function createListElement(text) {
   const liElement = document.createElement('li');
   liElement.innerText = text;
   return liElement;
+}
 }
 
