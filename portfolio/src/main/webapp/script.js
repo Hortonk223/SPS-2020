@@ -15,9 +15,19 @@
 /**
  * Adds a random greeting to the page.
  */
-function addMessage() {
-  console.log("magic is real");
-  fetch('/data').then(response => response.text()).then((message) => {
-    document.getElementById('greeting-container').innerText = message;
-  });
+function loadComments() {
+  console.log("Hi");
+  fetch('/data').then(response => response.json()).then((comments) => {
+    const commentListElement = document.getElementById('comment-container');
+        comments.forEach((data) => {
+      commentListElement.appendChild(createListElement(data.comment));
+    })
+})
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
+}
+
