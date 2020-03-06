@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="loadComments()">
     <div id="content">
       <h1>Hi! My name is Khalil Horton!</h1>
       <p>I'm a Sophmore studying Computer Engineering and Computer Science!</p>
@@ -16,7 +16,7 @@
       <a href="https://github.com/Hortonk223/">Visit my GitHub~!</a>
       <a href="https://www.linkedin.com/in/khalil-horton-521504162/3/">Visit my LinkedIn!</a>
       <p></p>
-      <button onclick="loadComments()">Look at these Comments!</button>
+       
       <div id="comment-container"></div>
 
       <form action="/data" method="POST">

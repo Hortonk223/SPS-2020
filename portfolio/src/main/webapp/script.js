@@ -19,8 +19,8 @@ function loadComments() {
   console.log("Hi");
   fetch('/data').then(response => response.json()).then((comments) => {
     const commentListElement = document.getElementById('comment-container');
-        comments.forEach((comment) => {
-      commentListElement.appendChild(createListElement(comment));
+        comments.forEach((data) => {
+      commentListElement.appendChild(createListElement(data.comment));
     })
 })
 /** Creates an <li> element containing text. */
